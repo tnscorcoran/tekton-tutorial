@@ -12,8 +12,10 @@ spec:
   params:
     - name: pathToYamlFile
       value: "knative/picalc.yaml"
+    - name: pathToDockerFile
+      value: "./src/Dockerfile"
     - name: imageUrl
-      value: <REGISTRY>/<NAMESPACE>/picalc
+      value: "au.icr.io/tnscorcoran/picalc"
     - name: imageTag
       value: "1.0"
   serviceAccountName: pipeline-account
