@@ -17,14 +17,14 @@ type: kubernetes.io/service-account-token
 
 ---
 
-kind: Role
+kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: pipeline-role
 rules:
 - apiGroups: ["serving.knative.dev"]
   resources: ["services"]
-  verbs: ["get", "create", "update", "patch"]
+  verbs: ["get", "create", "update", "patch", "watch", "list"]
 
 ---
 
@@ -34,7 +34,7 @@ metadata:
   name: pipeline-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: pipeline-role
 subjects:
 - kind: ServiceAccount
